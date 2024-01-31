@@ -18,7 +18,7 @@ class Map(gen_obj, gen_wns):
                  NMO: str = ""):
 
         const.map += 1
-        super().__init__(X, Y, CHR, const.n_abs[4], const.map, NMO)
+        super().__init__(X, Y, CHR, const.N_ABS[4], const.map, NMO)
         super().__wns__()
 
         self.end = False

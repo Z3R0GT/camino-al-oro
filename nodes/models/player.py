@@ -34,7 +34,7 @@ class Player(gen_obj, gen_pla, gen_move):
                  CONTROLLS: list = ["w", "s", "a", "d"],
                  CIFS: bool = False):
         const.pla += 1
-        super().__init__(X, Y, CHR, const.n_abs[2], const.pla, NMO)
+        super().__init__(X, Y, CHR, const.N_ABS[2], const.pla, NMO)
         super().__map__(MAP)
         
         self.__coords__()

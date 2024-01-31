@@ -44,7 +44,7 @@ class Window:
                  NMO: str = "") -> None:
         const.wns += 1
 
-        self.abs = const.n_abs[7]
+        self.abs = const.N_ABS[7]
         self.id = const.wns
 
         self.pla = PLA

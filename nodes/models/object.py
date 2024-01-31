@@ -20,7 +20,7 @@ class Object(gen_obj):
                  DATA: dict | list = ...):
         const.obj += 1
 
-        super().__init__(X, Y, CHR, const.n_abs[0], const.obj, NMO)
+        super().__init__(X, Y, CHR, const.N_ABS[0], const.obj, NMO)
         super().__map__(MAP)
 
 

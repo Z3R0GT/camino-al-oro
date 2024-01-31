@@ -1,0 +1,12 @@
+NAMES OF FUNC.
+
+create_{name}
+edit_{name}
+erase_{name}
+quit_{name}
+get_{name}
+set_{name}
+check_{name}
+
+conveción de nombre para los objetos
+(no necesario usarlos todos)

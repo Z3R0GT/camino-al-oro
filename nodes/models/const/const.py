@@ -4,7 +4,7 @@
 #  Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
 #  Vestibulum commodo. Ut rhoncus gravida arcu.
 
-n_abs = ["obj",  # 0
+N_ABS = ["obj",  # 0
          "cam",  # 1
          "pla",  # 2
          "npc",  # 3
@@ -13,8 +13,12 @@ n_abs = ["obj",  # 0
          "dlg",  # 6
          "wns"]  # 7
 
+DOOR_DEFAULT = "M"
+
 obj = pla = map = npc = cam = wns = dlg = stu = 0
 
-lim_fp = 10
-fp = 0
-time_per_frame = 0.15
+LIM_FP = 10
+FP = 0
+TIME_PER_FRAME = 0.15
+
+

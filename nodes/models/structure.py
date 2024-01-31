@@ -1,10 +1,4 @@
-#  Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-#  Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
-#  Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
-#  Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
-#  Vestibulum commodo. Ut rhoncus gravida arcu.
-
-
+from typing_extensions import Literal
 from nodes.models.const import const as const
 
 from nodes.models.wns.gen_wns import *
@@ -22,7 +16,7 @@ class Struture(gen_obj, gen_wns):
                  IS_COLL: bool = False,
                  NMO: str = ""):
         const.stu += 1
-        super().__init__(X, Y, CHR, const.n_abs[5], const.stu, NMO)
+        super().__init__(X, Y, CHR, const.N_ABS[5], const.stu, NMO)
         super().__map__(MAP)
         super().__wns__()
         super().__transform__(SZ_X, SZ_Y)
@@ -45,13 +39,42 @@ class Struture(gen_obj, gen_wns):
 #####################################################
 #       CONSEJO:  coord: list =[(X, Y)]             #
 #####################################################
-    def set_door(self, coods: list = [(0,0)], CHR =""):
+    def create_door(self, coods: list = [(0,0)], CHR =""):
+
         self._erase_pre_view()
         for _in in coods:
             self.square[_in[1]] = self._insert(self.square[_in[1]],
                                                               f"{CHR}",
                                                               specific_=_in[0])
         self._create_pre_view()
+
+    def create_geometry(self, 
+                      TYPE:Literal["X", "Y", "-Y"], 
+                      LN_Y_FROM:int, 
+                      LN_Y_TO:int, 
+                      LN_X_FROM:int,
+                      LN_X_TO:int,
+                      AUTO_APPLY:bool=True):
+        coord = []
+        
+        if TYPE == "Y":
+            for line in range(LN_Y_FROM, LN_Y_TO):
+                coord.append((LN_X_FROM, LN_X_TO, line))
+                
+        elif TYPE == "-Y":
+            for line in range(LN_Y_TO, LN_Y_FROM, -1):
+                coord.append((LN_X_FROM, LN_X_TO, line))
+                
+        elif TYPE == "X":
+            coord.append((LN_X_FROM, LN_X_TO, LN_Y_FROM))
+            
+        #REGRESA O APLICA LAS VARIABLE
+        if AUTO_APPLY:
+            self.edit_geometry(coord)
+        else:
+            return coord
+
+
 
 #####################################################
 #  CONSEJO:  coord: list =[(FROM, TO, LINE)]        #
