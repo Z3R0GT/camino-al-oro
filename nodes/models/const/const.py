@@ -21,4 +21,6 @@ LIM_FP = 10
 FP = 0
 TIME_PER_FRAME = 0.15
 
+IS_DEV = True
+
 

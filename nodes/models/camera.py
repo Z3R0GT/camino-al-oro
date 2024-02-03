@@ -5,11 +5,13 @@ from nodes.models.obj.gen_obj import *
 from nodes.models.window import *
 
 class Camera(gen_obj, gen_wns):
-
+#####################################################
+#       CONSEJO:  coord: list = [-X, X, -Y, Y]      #
+#####################################################
     def __init__(self, 
                  MAP,
                  PLA,
-                 COORD=[0, 0, 0, 0],
+                 COORD=[-5, 10, -2, 5],
                  NMO: str= ""):
         const.cam += 1
         super().__init__(COORD[0], COORD[2], ..., const.N_ABS[1], const.cam, NMO)
@@ -41,8 +43,10 @@ class Camera(gen_obj, gen_wns):
                     if x in range(cur_ren_x + self.vec[0], cur_ren_x + self.transform[0]):
                         self.pre_view += self.map.square[y][x]
                 #  TODO: CAMBIO TEST IN Camera BY render_image
-                self.square.append(self.pre_view + f"     line {self.map.abs}: {y}")
-                # self.square.append(self.pre_view)
+                if const.IS_DEV:
+                    self.square.append(self.pre_view + f"     line {self.map.abs}: {y}")
+                else:
+                   self.square.append(self.pre_view)
                 self._erase_pre_view()
         self._create_pre_view()
 

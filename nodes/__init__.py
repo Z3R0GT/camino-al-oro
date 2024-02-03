@@ -10,6 +10,7 @@ from nodes.models.object import *
 from nodes.models.player import *
 from nodes.models.camera import *
 from nodes.models.window import *
+from nodes.models.const.const import *
 
 version: str = "1.1.12.23"
 
