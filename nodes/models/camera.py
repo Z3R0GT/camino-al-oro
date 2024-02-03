@@ -12,7 +12,7 @@ class Camera(gen_obj, gen_wns):
                  COORD=[0, 0, 0, 0],
                  NMO: str= ""):
         const.cam += 1
-        super().__init__(COORD[0], COORD[2], ..., const.n_abs[1], const.cam, NMO)
+        super().__init__(COORD[0], COORD[2], ..., const.N_ABS[1], const.cam, NMO)
         super().__wns__()
         super().__map__(MAP)
         super().__transform__(COORD[1], COORD[3])

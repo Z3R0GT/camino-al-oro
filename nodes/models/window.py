@@ -1,9 +1,9 @@
 from nodes.models.const import const as const
 
 import time as tm
-_lim_fp = 10
-_fp = 0
-time_per_frame = 0.15
+_lim_fp = const.LIM_FP
+_fp = const.FP
+time_per_frame = const.TIME_PER_FRAME
 
 def set_lim_fp(lim: int):
     """

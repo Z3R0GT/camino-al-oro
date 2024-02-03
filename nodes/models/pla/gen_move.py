@@ -4,6 +4,7 @@
 #  Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
 #  Vestibulum commodo. Ut rhoncus gravida arcu.
 
+import pprint
 import time as tn
 
 class gen_move():
@@ -23,6 +24,9 @@ class gen_move():
         :return: True || False
         """
         self.lim = (self.map.vec[0], self.map.vec[1])
+
+        if len(coll) == 0:
+            return False, ""
 
         x = self.__in_x
         y = self.__in_y
