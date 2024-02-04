@@ -1,12 +1,13 @@
 # JUEGO CREADO CON VOP (PRIMERO EN SU CLASE) 
-# USANDO LA VERSIÓN 1.0.12.23 DEL MOTOR EN CUESTIÓN
+# USANDO LA VERSIÓN 1.1.12.23 DEL MOTOR EN CUESTIÓN
+#V 1.1
 # DISFRUTALO 
 
 from nodes import *
 
-const.IS_DEV = False
+DEFAULT[1] = False
 
-mapa_principal = Map(120, 29, "#", "Mansión")
+mapa_principal = Mapa(120, 29, "#", "Mansión")
 
 mansion = Struture(mapa_principal, 1, 1, 116, 20, "&", True)
 
@@ -59,7 +60,9 @@ mapa_principal.add_node(mansion)
 player = Player(mapa_principal, 40, 25, "X", ..., "...", ["w", "s", "a", "d"], ...)
 mapa_principal.add_node(player)
 
-m = Camera(mapa_principal, player, NMO="a")
+camara_principal = Camera(mapa_principal, player, NMO="a")
 
-n = Window(player, mapa_principal, m, "owo")
-n.set_map_n_start()
+CUR[1] = camara_principal
+CUR[0] = mapa_principal
+
+start_game(player, False, [20, 14])
