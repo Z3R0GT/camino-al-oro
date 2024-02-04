@@ -1,11 +1,10 @@
-#  Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-#  Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
-#  Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
-#  Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
-#  Vestibulum commodo. Ut rhoncus gravida arcu.
+#Doc 1.0
 
 class gen_wns:
     def __wns__(self):
+        """
+        Objeto que requieren un espacio amplio
+        """
         self.square = []
         self.pre_view = ""
 
@@ -14,15 +13,24 @@ class gen_wns:
 #####################################################
 
     def _erase_pre_view(self):
+        """
+        Limpia/Borra/Crea la pre-visualización del objeto
+        """
         self.pre_view = ""
 
     def _create_pre_view(self):
+        """
+        Crea una pre-visualización con base al atributo "square"
+        """
         self._erase_pre_view()
 
         for line in self.square:
             self.pre_view += f"{line}\n"
 
     def get_pre_view(self, is_print: bool = False):
+        """
+        Imprime o no la pre-visualización final del objeto
+        """
         if not is_print:
             print(self.pre_view)
         return self.pre_view
@@ -32,9 +40,16 @@ class gen_wns:
 #####################################################
 
     def _erase_square(self):
+        """
+        Limpia/Borra/Crea el atributo "square" del objeto
+        """
         self.square = []
 
     def _create_square(self, vec: list):
+        """
+        Crea lina por linea y guarda el "square", usando el "vec" (vector) 
+        del objeto
+        """
         for y in range(vec[1]):
             for x in range(vec[0]):
                 self.pre_view += self.character
@@ -46,6 +61,10 @@ class gen_wns:
 #####################################################
 
     def _create_ln_low_num(self, vec: int):
+        """
+        Crea linea de posición para los diferentes caracteres para
+        su ubicación DURANTE el desarrollo
+        """
         n = ""
         m = ""
         l = 0
@@ -62,6 +81,9 @@ class gen_wns:
         self._erase_pre_view()
 
     def _create_line(self, coods: list, invert: bool = False):
+        """
+        Crea un cubo
+        """
         for x in range(coods[1]):
             if x == 0 or x == (coods[1]-1):
                 if invert:

@@ -1,19 +1,19 @@
-#  Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-#  Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
-#  Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
-#  Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
-#  Vestibulum commodo. Ut rhoncus gravida arcu.
+#Doc V 1.0
 
-import pprint
 import time as tn
 
 class gen_move():
-    
     def __coords__(self):
+        """
+        Agrega coordenadas a objetos con base a su posición en el espacio
+        """
         self.global_x = self.vec[0]
         self.global_y = self.vec[1]
 
     def _zero_in(self):
+        """
+        Agrega entradas para objetos que puedan moverse
+        """
         self.__in_x = 0
         self.__in_y = 0
 
@@ -21,7 +21,6 @@ class gen_move():
         """
         Verifica si el siguiente movmiento no tiene un caracter de colision, sean
         True || False los indicadores
-        :return: True || False
         """
         self.lim = (self.map.vec[0], self.map.vec[1])
 
@@ -48,7 +47,11 @@ class gen_move():
                 print("Limite excedido")
                 return False, collision
 
-    def __obj_take(self):
+    def __obj_take(self) -> list:
+        """
+        Retorna la información de los objetos registrados del mapa 
+        al momento de crearse (si se modifican más adelante no aparecen aqui)
+        """
         chr_obj = []
         nme_obj = []
         dat_obj = []
@@ -62,6 +65,9 @@ class gen_move():
         return chr_obj, nme_obj, dat_obj
 
     def _move_body(self, in_):
+        """
+        Función general que simula el movmiento 
+        """
         if self.map.pause:
             return
 

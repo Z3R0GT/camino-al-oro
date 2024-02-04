@@ -1,3 +1,5 @@
+#Doc 1.0
+
 from .wns.gen_wns import *
 from .obj.gen_obj import *
 
@@ -36,9 +38,15 @@ class Mapa(gen_obj, gen_wns):
         self._create_pre_view()
 
     def _check_own(self, node) -> bool:
+        """
+        Verifica si el objeto fue creado para este mapa
+        """
         return self.id != node.meta["map"][0]
 
     def erase_coll(self, obj):
+        """
+        Elimina una colición con base al objeto
+        """
         if self._check_own(obj):
             return
 
@@ -50,6 +58,9 @@ class Mapa(gen_obj, gen_wns):
         self._set_meta("coll", self.coll)
 
     def set_coll(self, obj):
+        """
+        Agrega una colisión con base al objeto
+        """
         if self._check_own(obj):
             return
 
@@ -67,6 +78,9 @@ class Mapa(gen_obj, gen_wns):
         self._set_meta("coll", self.coll)
 
     def add_node(self, node, exception:bool=False):
+        """
+        Agrega un objeto/nodo, dependiendo del abecedario con el que fue creado
+        """
         if self._check_own(node):
             return print(f"{node.name} no pertenece a {self.name}")
 
@@ -109,6 +123,9 @@ class Mapa(gen_obj, gen_wns):
             self._create_pre_view()
 
     def del_node(self, node):
+        """
+        Elimina un objeto/nodo y actualiza "square" 
+        """
         if self._check_own(node):
             return
 

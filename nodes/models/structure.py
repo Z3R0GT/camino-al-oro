@@ -3,7 +3,6 @@ from typing_extensions import Literal
 from .wns.gen_wns import *
 from .obj.gen_obj import *
 
-
 class Struture(gen_obj, gen_wns):
     def __init__(self,
                  MAP,
@@ -39,7 +38,9 @@ class Struture(gen_obj, gen_wns):
 #       CONSEJO:  coord: list =[(X, Y)]             #
 #####################################################
     def create_door(self, coods: list = [(0,0)], CHR =""):
-
+        """
+        Crea una puerta con base a las coordenadas locales del objeto
+        """
         self._erase_pre_view()
         for _in in coods:
             self.square[_in[1]] = self._insert(self.square[_in[1]],
@@ -54,6 +55,9 @@ class Struture(gen_obj, gen_wns):
                       LN_X_FROM:int,
                       LN_X_TO:int,
                       AUTO_APPLY:bool=True):
+        """
+        Crea y aplica coordenadas más facilmente o retorna la coordenada en cuestión
+        """
         coord = []
         
         if TYPE == "Y":
@@ -79,6 +83,9 @@ class Struture(gen_obj, gen_wns):
 #  CONSEJO:  coord: list =[(FROM, TO, LINE)]        #
 #####################################################
     def edit_geometry(self, coord: list = [(0, 0, 0)]):
+        """
+        Forma basica de crear lineas con coordenadas locales del objeto
+        """
         self._erase_pre_view()
         for in_ in range(len(coord)):
             if len(coord[in_]) == 3:

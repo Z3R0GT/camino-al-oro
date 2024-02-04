@@ -1,12 +1,11 @@
-#  Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-#  Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
-#  Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
-#  Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
-#  Vestibulum commodo. Ut rhoncus gravida arcu.
+#DOC V 1.0
 
 from .const.const import *
 
 def _set_name(nme: str, nme_dft: tuple = ("DEFAULT", "NRO")):
+    """
+    Crea nombres de manera automatica, con una base
+    """
     if type(nme) == type("n"):
         if nme != "":
             return nme
@@ -17,7 +16,6 @@ def _set_name(nme: str, nme_dft: tuple = ("DEFAULT", "NRO")):
         return "erno"
 
 class gen_obj:
-
     def __init__(self,
                  X: int,
                  Y: int,
@@ -25,6 +23,9 @@ class gen_obj:
                  ABS: str,
                  ID: int,
                  NMO: str):
+        """
+        Clase base para todo objeto
+        """
         self.vec = [X, Y]
         self._temp_vec = [X, Y]
 
@@ -43,10 +44,16 @@ class gen_obj:
         }
 
     def __transform__(self, size_x, size_y):
+        """
+        Agrega un nuevo atributo extra para coordenadas locales
+        """
         self.transform = (size_x, size_y)
         self._set_meta("transform", self.transform)
 
     def __map__(self, MAP):
+        """
+        Agrega variable "mapa"
+        """
         self.map = MAP
         self._set_meta("map", (self.map.id, self.map.name))
         
@@ -54,9 +61,16 @@ class gen_obj:
     #                      META ZONE                    #
     #####################################################
     def _set_meta(self, nme: str, arg):
+        """
+        agrega nuevos datos para ser guardados en "meta"
+        """
         self.meta[nme] = arg
 
-    def _edit_meta(self, nme_1: str, nme_2, arg):
+    def _edit_meta(self, nme_1: str, nme_2: str, arg):
+        """
+        Edita algún dato del meta, donde: usas el nombre + argumento
+        En caso de ser un diccionario: nombre_1 + nombre_2 + argumento
+        """
         if type(arg) == type([]) or type(arg) == type(()):
             if type(nme_2) != type(...):
                 self.meta[nme_1][nme_2].append(arg)
@@ -65,7 +79,10 @@ class gen_obj:
         else:
             self._set_meta(nme_1, arg)
 
-    def get_meta(self):
+    def get_meta(self) -> dict:
+        """
+        Regresa el "meta" como variable, no imprime
+        """
         return self.meta
 
     #####################################################
@@ -75,13 +92,13 @@ class gen_obj:
     def _insert(self, old_, new_, from_=..., to_=..., specific_=...) -> str:
         """
         inserta una cadena de texto y retorna una nueva desde unas coordenas o en especifico uno
+        donde:
 
-        :param old_: vieja cadena
-        :param new_: nueva cadena
-        :param from_: empieza a insertar
-        :param to_: termina de insertar
-        :param specific_: coordenada especifica
-        :return: str
+        old_: vieja cadena
+        new_: nueva cadena
+        from_: empieza a insertar
+        to_: termina de insertar
+        specific_: coordenada especifica
         """
         temp = []
         new = ""

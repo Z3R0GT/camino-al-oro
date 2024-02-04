@@ -1,8 +1,4 @@
-#  Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-#  Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
-#  Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
-#  Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
-#  Vestibulum commodo. Ut rhoncus gravida arcu.
+#Doc V 1.0
 
 import pynput as pn
 
@@ -39,9 +35,6 @@ class Player(gen_obj, gen_pla, gen_move):
         """
         cuando la tecla es presionada, sumara o actualizara sea
         .__in_x y .__in_y las entrada
-
-        :param key:
-        :return:
         """
         try:
             self._move_body(key.char)
@@ -58,14 +51,15 @@ class Player(gen_obj, gen_pla, gen_move):
     def __on_realease(self, key):
         """
         Cuando la tecla dejo de ser presionada
-
-        :param key:
-        :return:
         """
         if key == pn.keyboard.Key.esc:
             return False
 
     def move(self):
+        """
+        comienza a capturar el moviento de teclado en todo momento 
+        hasta el final de la ejecución
+        """
         lst = self.key.Listener(on_press=self.__on_press, on_release=self.__on_realease)
         lst.start()
 # crear en meta un "inv" que contendra los N objetos (que sea diccionario)

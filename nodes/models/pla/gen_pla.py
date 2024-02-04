@@ -1,20 +1,17 @@
-#  Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-#  Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
-#  Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
-#  Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
-#  Vestibulum commodo. Ut rhoncus gravida arcu.
+#Doc V 1.0
 
 import random as rn
 import subprocess as sb
 import sys
 
 class gen_pla:
-
     def __start__(self,
                  EXPT_COLL,
                  CONTROLL,
                  CIFS):
-        
+        """
+        Hecho para objetos que se puedan mover e "interactuar"
+        """
         self.controll = CONTROLL
 
         self.__in_x: int = 0
@@ -54,8 +51,6 @@ class gen_pla:
         """
         Verifica si la posición donde aparecera no tiene un caracter de colisión, sino,
         aleatoriamente buscara uno que no lo tenga
-
-        :return:
         """
 
         for coll in self.coll:
@@ -75,7 +70,6 @@ class gen_pla:
     def _refresh_coll(self):
         """
         actualiza los caracteres de colisión del objeto
-        :return:
         """
         if type(self.expt_coll) != type(...):
             for coll_gen in self.map.coll:
@@ -108,9 +102,7 @@ class gen_pla:
 
     def some_info(self):
         """
-        TODO: NO USAR SI NO ERES DEV DE VOP
-
-        :return:
+        Información importante respecto al objeto que se mueve
         """
         n = f"¿{self.name} ({self.abs}) pasará?: {self._check_if(self.coll)[0]} Coordenadas de entrada: (X:{self.input[0]};Y:{self.input[1]}) Posición actual: (X:{self.global_x};Y:{self.global_y})"
         #sb.run([sys.executable, "-c", f"print('{n}')"])
