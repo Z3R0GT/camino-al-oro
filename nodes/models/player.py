@@ -6,20 +6,10 @@
 
 import pynput as pn
 
-try:
-    from nodes.models.const import const as const
+from .pla.gen_pla import *
+from .pla.gen_move import *
 
-    from nodes.models.pla.gen_move import *
-    from nodes.models.pla.gen_pla import *
-
-    from nodes.models.obj.gen_obj import *
-except:
-    from const import const as const
-
-    from pla.gen_pla import *
-    from pla.gen_move import *
-
-    from obj.gen_obj import *
+from .obj.gen_obj import *
 
 
 class Player(gen_obj, gen_pla, gen_move):
@@ -33,8 +23,8 @@ class Player(gen_obj, gen_pla, gen_move):
                  NMO: str = "",
                  CONTROLLS: list = ["w", "s", "a", "d"],
                  CIFS: bool = False):
-        const.pla += 1
-        super().__init__(X, Y, CHR, const.N_ABS[2], const.pla, NMO)
+        N_NUM[1] += 1
+        super().__init__(X, Y, CHR, N_ABS[2], N_NUM[1], NMO)
         super().__map__(MAP)
         
         self.__coords__()

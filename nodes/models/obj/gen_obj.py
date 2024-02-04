@@ -4,6 +4,8 @@
 #  Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
 #  Vestibulum commodo. Ut rhoncus gravida arcu.
 
+from .const.const import *
+
 def _set_name(nme: str, nme_dft: tuple = ("DEFAULT", "NRO")):
     if type(nme) == type("n"):
         if nme != "":
@@ -13,7 +15,6 @@ def _set_name(nme: str, nme_dft: tuple = ("DEFAULT", "NRO")):
     else:
         print(f"Nombre dado no es str, es: {type(nme)}")
         return "erno"
-
 
 class gen_obj:
 

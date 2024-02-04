@@ -1,8 +1,7 @@
 from typing_extensions import Literal
-from nodes.models.const import const as const
 
-from nodes.models.wns.gen_wns import *
-from nodes.models.obj.gen_obj import *
+from .wns.gen_wns import *
+from .obj.gen_obj import *
 
 
 class Struture(gen_obj, gen_wns):
@@ -15,8 +14,8 @@ class Struture(gen_obj, gen_wns):
                  CHR: str,
                  IS_COLL: bool = False,
                  NMO: str = ""):
-        const.stu += 1
-        super().__init__(X, Y, CHR, const.N_ABS[5], const.stu, NMO)
+        N_NUM[6] += 1
+        super().__init__(X, Y, CHR, N_ABS[5], N_NUM[6], NMO)
         super().__map__(MAP)
         super().__wns__()
         super().__transform__(SZ_X, SZ_Y)
@@ -111,10 +110,10 @@ if __name__ == "__main__":
 
     try:
         import time
-        from map import *
+        from mapa import *
 
         # SE CREA UN MAPA :D
-        mapa = Map(50, 30, "#", "k")
+        mapa = Mapa(50, 30, "#", "k")
 
         # SE CREA UNA Structure (mi casa :v)
         casa = Struture(mapa, 1, 0, 24, 24, "&")

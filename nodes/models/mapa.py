@@ -1,24 +1,14 @@
-#  Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-#  Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
-#  Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
-#  Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
-#  Vestibulum commodo. Ut rhoncus gravida arcu.
+from .wns.gen_wns import *
+from .obj.gen_obj import *
 
-
-from nodes.models.const import const as const
-
-from nodes.models.wns.gen_wns import *
-from nodes.models.obj.gen_obj import *
-
-class Map(gen_obj, gen_wns):
+class Mapa(gen_obj, gen_wns):
     def __init__(self,
                  X: int,
                  Y: int,
                  CHR: str,
                  NMO: str = ""):
-
-        const.map += 1
-        super().__init__(X, Y, CHR, const.N_ABS[4], const.map, NMO)
+        N_NUM[2] += 1
+        super().__init__(X, Y, CHR, N_ABS[4], N_NUM[2], NMO)
         super().__wns__()
 
         self.end = False
@@ -146,7 +136,7 @@ class Map(gen_obj, gen_wns):
 
 if __name__ == "__main__":
     try:
-        mapa = Map(int(input("¿Cuán ancho quieres que sea?: ")),
+        mapa = Mapa(int(input("¿Cuán ancho quieres que sea?: ")),
                    int(input("¿Cuán largo quieres que sea?: ")),
                    "#",
                    str(input("¿Cual es el nombre del mapa?: ")))
