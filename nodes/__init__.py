@@ -13,7 +13,7 @@ import time as tm
 version: str = "1.1.12.23"
 """
 version de la libreria, siendo:
-{n lanzamiento}.{n update}.{mes}.{año}
+{n lanzamiento}.{n update}.{mes}.{aÃ±o}
 """
 
 def _erase_screen():
@@ -26,7 +26,7 @@ def start_game(player: Player,auto:bool = True, vec:list=[0,0]):
     """
     requiere del jugador y que previamente actualizaras el mapa y la camara.
     
-    puedes dejar que el tamaño de la ventana sea automatica (toma referencia del mapa)
+    puedes dejar que el tamaÃ±o de la ventana sea automatica (toma referencia del mapa)
     o cambiar el estado de "auto" y con "vec" colocar las que quieras
     """
     try:

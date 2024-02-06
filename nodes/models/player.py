@@ -58,7 +58,7 @@ class Player(gen_obj, gen_pla, gen_move):
     def move(self):
         """
         comienza a capturar el moviento de teclado en todo momento 
-        hasta el final de la ejecución
+        hasta el final de la ejecuciÃ³n
         """
         lst = self.key.Listener(on_press=self.__on_press, on_release=self.__on_realease)
         lst.start()

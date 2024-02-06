@@ -1,3 +1,4 @@
+#Doc 1.0
 from typing_extensions import Literal
 
 from .wns.gen_wns import *
@@ -56,7 +57,7 @@ class Struture(gen_obj, gen_wns):
                       LN_X_TO:int,
                       AUTO_APPLY:bool=True):
         """
-        Crea y aplica coordenadas m·s facilmente o retorna la coordenada en cuestiÛn
+        Crea y aplica coordenadas m√°s facilmente o retorna la coordenada en cuesti√≥n
         """
         coord = []
         

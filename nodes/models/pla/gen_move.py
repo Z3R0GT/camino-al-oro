@@ -5,7 +5,7 @@ import time as tn
 class gen_move():
     def __coords__(self):
         """
-        Agrega coordenadas a objetos con base a su posición en el espacio
+        Agrega coordenadas a objetos con base a su posiciÃ³n en el espacio
         """
         self.global_x = self.vec[0]
         self.global_y = self.vec[1]
@@ -49,8 +49,8 @@ class gen_move():
 
     def __obj_take(self) -> list:
         """
-        Retorna la información de los objetos registrados del mapa 
-        al momento de crearse (si se modifican más adelante no aparecen aqui)
+        Retorna la informaciÃ³n de los objetos registrados del mapa 
+        al momento de crearse (si se modifican mÃ¡s adelante no aparecen aqui)
         """
         chr_obj = []
         nme_obj = []
@@ -66,7 +66,7 @@ class gen_move():
 
     def _move_body(self, in_):
         """
-        Función general que simula el movmiento 
+        FunciÃ³n general que simula el movmiento 
         """
         if self.map.pause:
             return

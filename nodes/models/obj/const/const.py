@@ -4,7 +4,7 @@ CUR = [...,    #MAPA     0
        ...]    #CAM      1
 """
 Objetos recurrentes mutables, que pueden variar
-durante la ejecución del programa
+durante la ejecuciÃ³n del programa
 """
 
 N_ABS = ["obj",  # 0
@@ -35,7 +35,7 @@ N_FP = [10,   #LIM_FP             0
         0.15  #TIME_PER_FRAME     2
         ]
 """
-Referencia de FramesPeer (FP) para configuración de impresión
+Referencia de FramesPeer (FP) para configuraciÃ³n de impresiÃ³n
 y consistencia
 """
 

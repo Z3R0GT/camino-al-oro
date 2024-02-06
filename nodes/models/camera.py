@@ -41,7 +41,7 @@ class Camera(gen_obj, gen_wns):
         self._erase_pre_view()
         self._erase_square()
 
-        #¿ESTA MIRANDO?
+        #Â¿ESTA MIRANDO?
         if not is_lock:
             cur_ren_x = self.focus.global_x
             cur_ren_y = self.focus.global_y

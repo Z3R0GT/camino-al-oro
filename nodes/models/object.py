@@ -20,7 +20,7 @@ class Object(gen_obj):
 
     def set_data(self, nme: str, *arg):
         """
-        Agrega/Edita nueva información a "data"
+        Agrega/Edita nueva informaciÃ³n a "data"
         """
         self.data[nme] = arg
         self._refresh_meta()
@@ -33,7 +33,7 @@ class Object(gen_obj):
 
     def edit_data(self, nme_1: str, nme_2, arg):
         """
-        edita información de "data"
+        edita informaciÃ³n de "data"
         """
         if type(arg) == type([]) or type(arg) == type(()):
             if type(nme_2) != type(...):

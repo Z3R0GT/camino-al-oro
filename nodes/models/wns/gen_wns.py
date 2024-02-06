@@ -14,13 +14,13 @@ class gen_wns:
 
     def _erase_pre_view(self):
         """
-        Limpia/Borra/Crea la pre-visualizaci髇 del objeto
+        Limpia/Borra/Crea la pre-visualizaci贸n del objeto
         """
         self.pre_view = ""
 
     def _create_pre_view(self):
         """
-        Crea una pre-visualizaci髇 con base al atributo "square"
+        Crea una pre-visualizaci贸n con base al atributo "square"
         """
         self._erase_pre_view()
 
@@ -29,7 +29,7 @@ class gen_wns:
 
     def get_pre_view(self, is_print: bool = False):
         """
-        Imprime o no la pre-visualizaci髇 final del objeto
+        Imprime o no la pre-visualizaci贸n final del objeto
         """
         if not is_print:
             print(self.pre_view)
@@ -62,8 +62,8 @@ class gen_wns:
 
     def _create_ln_low_num(self, vec: int):
         """
-        Crea linea de posici髇 para los diferentes caracteres para
-        su ubicaci髇 DURANTE el desarrollo
+        Crea linea de posici贸n para los diferentes caracteres para
+        su ubicaci贸n DURANTE el desarrollo
         """
         n = ""
         m = ""

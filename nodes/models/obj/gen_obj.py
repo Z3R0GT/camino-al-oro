@@ -68,7 +68,7 @@ class gen_obj:
 
     def _edit_meta(self, nme_1: str, nme_2: str, arg):
         """
-        Edita algún dato del meta, donde: usas el nombre + argumento
+        Edita algÃºn dato del meta, donde: usas el nombre + argumento
         En caso de ser un diccionario: nombre_1 + nombre_2 + argumento
         """
         if type(arg) == type([]) or type(arg) == type(()):
