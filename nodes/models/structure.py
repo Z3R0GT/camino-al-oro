@@ -35,20 +35,6 @@ class Struture(gen_obj, gen_wns):
         self._create_ln_low_num(self.transform[0])
         self._create_pre_view()
 
-#####################################################
-#       CONSEJO:  coord: list =[(X, Y)]             #
-#####################################################
-    def create_door(self, coods: list = [(0,0)], CHR =""):
-        """
-        Crea una puerta con base a las coordenadas locales del objeto
-        """
-        self._erase_pre_view()
-        for _in in coods:
-            self.square[_in[1]] = self._insert(self.square[_in[1]],
-                                                              f"{CHR}",
-                                                              specific_=_in[0])
-        self._create_pre_view()
-
     def create_geometry(self, 
                       TYPE:Literal["X", "Y", "-Y"], 
                       LN_Y_FROM:int, 
@@ -78,7 +64,14 @@ class Struture(gen_obj, gen_wns):
         else:
             return coord
 
-
+#####################################################
+#       CONSEJO:  coord: list =[(X, Y)]             #
+#####################################################
+    def create_door(self, coods: list = [(0,0)], CHR =""):
+        """
+        Crea una puerta con base a las coordenadas locales del objeto
+        """
+        self._edit_line(coods, CHR)
 
 #####################################################
 #  CONSEJO:  coord: list =[(FROM, TO, LINE)]        #

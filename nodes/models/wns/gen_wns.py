@@ -94,11 +94,40 @@ class gen_wns:
                 if invert:
                     t = f"{self.map.character}" + f"{self.character}" * (coods[0] + 2) + f"{self.map.character}"
                 else:
-                    t = f"{self.character}" + f"{self.map.character}" * (coods[0] - 2) + f"{self.character}"
+                    if self.abs == "pgn":
+                        t = f"{self.character}" + " " * (coods[0] - 2) + f"{self.character}"
+                    else:
+                        t = f"{self.character}" + f"{self.map.character}" * (coods[0] - 2) + f"{self.character}"
 
             self.square.append(t + f"     line {self.abs}:{x}")
             # self.square.append(t)
 
         self._create_pre_view()
 
+    def _edit_line(self, coods: list = [(0,0)], CHR =""):
+        """
+        Edita una linea base a las coordenadas propocionadas, insertar la cadena de caracteres de "CHR"
+        """
+        self._erase_pre_view()
+        len_chr = len(CHR)
+        
+        if self.abs == "pgn":
+            d = True
+        else:
+            d = False
+        
+        for _in in coods:
+            if not d:
+                self.square[_in[1]] = self._insert(self.square[_in[1]], f"{CHR}", specific_=_in[0])
+            else:
+                if len_chr >= self.vec[0]:
+                    self.square[_in[1]] = self._insert(self.square[_in[1]], f"{CHR}", from_=_in[0], to_=self.vec[0])
+                    self.square[_in[1]] = self._insert(self.square[_in[1]], f"{self.character}", specific_=self.vec[0]-1)
+                    return True, int(len_chr-self.vec[0])
+                else:
+                    self.square[_in[1]] = self._insert(self.square[_in[1]], f"{CHR}", from_=_in[0], to_=_in[0]+len_chr)
+                    return False, 0
+                    
+            
+        self._create_pre_view()
 

@@ -14,6 +14,7 @@ N_ABS = ["obj",  # 0
          "map",  # 4
          "stu",  # 5
          "dlg",  # 6
+         "pgn",  # 7
          ]  
 """
 abecedario/nombre cortos de los diferentes objetos
@@ -25,6 +26,7 @@ N_NUM = [0, #OBJ    0
          0, #CAM    4
          0, #DLG    5
          0, #STU    6
+         0, #PGN    7
          ]
 """
 referencia para IDs de los objetos
